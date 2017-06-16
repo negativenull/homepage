@@ -1,0 +1,37 @@
+/******************************
+	alerts/notifications
+******************************/
+
+.#{$ns}alert {
+	position: relative;
+	line-height: 1.3;
+	@include rem(padding, 12px 35px 12px 15px);
+	@include rem(margin-bottom, $margin-bottom);
+	i {
+		@include rem(margin-right, 5px);
+	}
+	& h1, & h2, & h3, & h4, & h5, & h6 {
+		@include rem(margin-top, 0);
+	}
+	& .#{$ns}close {
+		font-weight: bold;
+		position: absolute;
+		@include rem(padding, 8px 11px);
+		@include rem(right, 3px);
+		@include rem(top, 1px);
+		background: none;
+		border: none;
+		i {
+			margin: 0;
+		}
+	}
+	&.#{$ns}caution {
+		color: $color-caution;
+	}
+	&.#{$ns}error {
+		color: $color-error;
+	}
+	&.#{$ns}success {
+		color: $color-success;
+	}
+}

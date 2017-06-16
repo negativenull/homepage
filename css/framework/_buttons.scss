@@ -1,0 +1,194 @@
+/******************************
+	buttons
+******************************/
+
+.#{$ns}btn {
+    font-family: $font-family;
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	@include rem(font-size, $font-size);
+	@include rem(padding, 0 20px);
+	@include rem(height, $height-default);
+	@include rem(line-height, $height-default);
+	text-decoration: none;
+	border:none;
+	vertical-align: top;
+	background-color: $color-default;
+	color: $color-text;
+	&:hover {
+		text-decoration: none;
+	}
+	&.#{$ns}medium { // default padding if needed
+		@include rem(padding, 0 20px);
+	}
+	&.#{$ns}x-small {
+		@include rem(font-size, $font-size - 2);
+		@include rem(height, $height-x-small);
+		@include rem(padding, 0 10px);
+		@include rem(line-height, $height-x-small);
+	}
+	&.#{$ns}small {
+		@include rem(font-size, $font-size - 1);
+		@include rem(height, $height-small);
+		@include rem(padding, 0 15px);
+		@include rem(line-height, $height-small);
+	}
+	&.#{$ns}large {
+		@include rem(font-size, $font-size + 2);
+		@include rem(height, $height-large);
+		@include rem(padding, 0 30px);
+		@include rem(line-height, $height-large);
+	}
+	&.#{$ns}x-large {
+		@include rem(font-size, $font-size + 4);
+		@include rem(height, $height-x-large);
+		@include rem(padding, 0 40px);
+		@include rem(line-height, $height-x-large);
+	}
+	&.#{$ns}radius {
+		border-radius: $button-border-radius;
+	}
+	&.#{$ns}round {
+		border-radius: 100px;
+	}
+	&.#{$ns}circle {
+		text-align: center;
+		@include rem(padding, 0 7px);
+		@include rem(min-width, 36px);
+		@include rem(border-radius, 30px);
+		&.#{$ns}x-small {
+			@include rem(padding, 0 5px);
+			@include rem(min-width, 29px);
+		}
+		&.#{$ns}small {
+			@include rem(padding, 0 5px);
+			@include rem(min-width, 33px);
+		}
+		&.#{$ns}large {
+			@include rem(padding, 0 10px);
+			@include rem(min-width, 42px);
+		}
+		&.#{$ns}x-large {
+			@include rem(padding, 0 10px);
+			@include rem(min-width, 50px);
+		}
+	}
+	&.#{$ns}text {
+		background: none;
+		&:hover {
+			text-decoration: underline;
+		}
+		&:disabled, &.#{$ns}disabled {
+			&, &:hover, &:active {
+				background: none;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// button group
+.#{$ns}btn-group {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	.#{$ns}radius, .#{$ns}round {
+		border-radius: 0;
+	}
+	> .#{$ns}btn {
+		float: left;
+		border-left-width: 0;
+		&:first-child {
+			border-left-width: $button-border-width;
+		}
+	}
+	> .#{$ns}radius {
+		&:first-child {
+			border-radius: $button-border-radius 0 0 $button-border-radius;
+		}
+		&:last-child {
+			border-radius: 0 $button-border-radius $button-border-radius 0;
+		}
+	}
+	> .#{$ns}round {
+		&:first-child {
+			border-radius: 100px 0 0 100px;
+		}
+		&:last-child {
+			border-radius: 0 100px 100px 0;
+		}
+	}
+	li {
+		float: left;
+		& .#{$ns}btn{
+			border-left-width: 0;
+		}
+		&:first-child .#{$ns}btn {
+			border-left-width: $button-border-width;
+		}
+		&:first-child .#{$ns}radius {
+			border-radius: $button-border-radius 0 0 $button-border-radius;
+		}
+		&:last-child .#{$ns}radius {
+			border-radius: 0 $button-border-radius $button-border-radius 0;
+		}
+		&:first-child .#{$ns}round {
+			border-radius: 100px 0 0 100px;
+		}
+		&:last-child .#{$ns}round {
+			border-radius: 0 100px 100px 0;
+		}
+	}
+	+ .#{$ns}btn-group {
+		@include rem(margin-left, 10px);
+	}
+}
+
+// button group vertical
+.#{$ns}btn-group-vertical {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	.#{$ns}radius, .#{$ns}round {
+		border-radius: 0;
+	}
+	> .#{$ns}btn {
+		float: left;
+		clear: left;
+		border-top-width: 0;
+		@include box-shadow(none);
+		&:first-child {
+			border-top-width: $button-border-width;
+		}
+	}
+	> .#{$ns}radius {
+		&:first-child {
+			border-radius: $button-border-radius $button-border-radius 0 0;
+		}
+		&:last-child {
+			border-radius: 0 0 $button-border-radius $button-border-radius;
+		}
+	}
+	li {
+		float: left;
+		& .#{$ns}btn {
+			border-top-width: 0;
+		}
+		&:first-child .btn {
+			border-top-width: $button-border-width;
+		}
+		&:first-child .#{$ns}radius {
+			border-radius: $button-border-radius $button-border-radius 0 0;
+		}
+		&:last-child .#{$ns}radius {
+			border-radius: 0 0 $button-border-radius $button-border-radius;
+		}
+	}
+	+ .#{$ns}btn-group-vertical {
+		clear: left;
+		@include rem(margin-top, 10px);
+	}
+}

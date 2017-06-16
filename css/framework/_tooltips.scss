@@ -1,0 +1,48 @@
+/******************************
+    tooltips
+******************************/
+
+.#{$ns}tooltip {
+    @include rem(font-size, $font-size - 1);
+    @include rem(padding, 6px 8px 5px);
+    position: absolute;
+    z-index: 1000;
+    margin-bottom: 0;
+    opacity: 0.95;
+    &:after {
+        @include font-icon;
+        content: "\f0d7";
+        position: absolute;
+        @include rem(font-size, 18px);
+        left: 50%;
+        @include rem(bottom, -12px);
+        @include rem(margin-left, -5px);
+    }
+    &.#{$ns}alert {
+        position: absolute;
+        margin: 0;
+        @include rem(font-size, $font-size);
+        opacity: 0.95;
+    }
+    &.bottom:after {
+        bottom: auto;
+        @include rem(top, -13px);
+        content: "\f0d8";
+    }
+    &.right:after,
+    &.left:after {
+        margin-left: 0;
+        bottom: auto;
+        left: auto;
+        top: 50%;
+        @include rem(margin-top, -8px);
+    }
+    &.right:after {
+        @include rem(left, -7px);
+        content: "\f0d9";
+    }
+    &.left:after {
+        @include rem(right, -7px);
+        content: "\f0da";
+    }
+}

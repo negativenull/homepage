@@ -1,0 +1,260 @@
+/******************************
+	forms
+******************************/
+
+label, input, button, select, textarea {
+	@include rem(font-size, $font-size);
+	line-height: 1.4;
+	margin: 0;
+	vertical-align: middle;
+}
+
+fieldset {
+	@include rem(padding, 15px);
+	border: 1px solid $color-default;
+}
+
+legend {
+	font-weight: bold;
+	@include rem(padding, 0 4px);
+	@include rem(margin-left, -4px);
+}
+
+form {
+	@include rem(margin-bottom, $margin-bottom);
+}
+
+label {
+	display: block;
+	clear: left;
+	@include rem(margin-bottom, $margin-bottom/3);
+	&.#{$ns}inline-block {
+		@include rem(padding-top, 6px);
+	}
+	&.#{$ns}disabled {
+		color: lighten($color-text, 35);
+	}
+}
+
+input,
+// input[type="text"],
+// input[type="email"],
+// input[type="password"],
+// input[type="search"],
+// input[type="url"],
+// input[type="tel"],
+// input[type="number"],
+// input[type="date"],
+// input[type="time"],
+select,
+textarea {
+    font-family: $font-family;
+	width: 100%;
+	&[size], &.#{$ns}auto {
+		width: auto;
+	}
+	@include rem(margin-bottom, $margin-bottom);
+	background-color: #fff;
+	border: 1px solid $color-default-lt;
+	@include rem(min-height, $height-default);
+	@include rem(padding, 5px 10px);
+	&.#{$ns}radius {
+		border-radius: $border-radius;
+	}
+	&.#{$ns}round {
+		border-radius: 100px;
+	}
+	&.#{$ns}medium { // default padding if needed
+		@include rem(padding, 5px 10px);
+		@include rem(min-height, $height-default);
+		@include rem(font-size, $font-size);
+	}
+	&.#{$ns}x-small {
+		@include rem(font-size, $font-size - 1);
+		@include rem(padding, 3px 7px);
+		@include rem(min-height, $height-x-small);
+	}
+	&.#{$ns}small {
+		@include rem(font-size, $font-size - 1);
+		@include rem(padding, 4px 7px);
+		@include rem(min-height, $height-small);
+	}
+	&.#{$ns}large {
+		@include rem(font-size, $font-size + 2);
+		@include rem(padding, 7px 15px);
+		@include rem(min-height, $height-large);
+	}
+	&.#{$ns}x-large {
+		@include rem(font-size, $font-size + 4);
+		@include rem(padding, 9px 19px);
+		@include rem(min-height, $height-x-large);
+	}
+	&.#{$ns}error {
+		border-color: lighten($color-error, 20);
+		&:focus {
+			@include input-focus($color-error);
+		}
+	}
+	&.#{$ns}success {
+		border-color: lighten($color-success, 5);
+		&:focus {
+			@include input-focus($color-success);
+		}
+	}
+	&:disabled {
+		border-color: $color-default;
+		background-color: $color-default-lt;
+	}
+	&:focus {
+		@include input-focus($color-focus);
+	}
+}
+
+.#{$ns}input-combo {
+	display: table;
+	@include rem(margin-bottom, $margin-bottom);
+	.#{$ns}add-on {
+		display: table-cell;
+	}
+	span.#{$ns}add-on,
+	label.#{$ns}add-on {
+		vertical-align: middle;
+		text-align: center;
+		border: 1px solid $color-default-lt;
+		background-color: lighten($color-default-lt, 5);
+		font-size: 105%;
+		@include rem(padding, 0 13px);
+		&.#{$ns}x-small {
+			@include rem(font-size, $font-size - 1);
+		}
+		&.#{$ns}small {
+			@include rem(font-size, $font-size - 1);
+		}
+		&.#{$ns}large {
+			@include rem(font-size, $font-size + 2);
+		}
+		&.#{$ns}x-large {
+			@include rem(font-size, $font-size + 4);
+		}
+	}
+	.#{$ns}add-on:first-child {
+		border-right: none;
+		&.#{$ns}radius {
+			border-radius: $border-radius 0 0 $border-radius;
+		}
+		&.#{$ns}round {
+			border-radius: 100px 0 0 100px;
+		}
+	}
+	.#{$ns}add-on:last-child {
+		border-left: none;
+		&.#{$ns}radius {
+			border-radius: 0 $border-radius $border-radius 0;
+		}
+		&.#{$ns}round {
+			border-radius: 0 100px 100px 0;
+		}
+	}
+	input,
+	// input[type="text"],
+	// input[type="email"],
+	// input[type="password"],
+	// input[type="search"],
+	// input[type="url"],
+	// input[type="tel"],
+	// input[type="number"],
+	// input[type="date"],
+	// input[type="time"],
+	select {
+		display: table-cell;
+		margin-bottom: 0;
+		border-radius: 0;
+		&:first-child {
+			&.#{$ns}radius:first-child {
+				border-radius: $border-radius 0 0 $border-radius;
+			}
+			&.#{$ns}round:first-child {
+				border-radius: 100px 0 0 100px;
+			}
+		}
+		&:last-child {
+			&.#{$ns}radius:last-child {
+				border-radius: 0 $border-radius $border-radius 0;
+			}
+			&.#{$ns}round:last-child {
+				border-radius: 0 100px 100px 0;
+			}
+		}
+	}
+}
+
+.#{$ns}select {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	@include rem(margin-bottom, $margin-bottom);
+	&:after {
+		@include font-icon();
+		display: block;
+		content: "\F0DC";
+		background-color: #fff;
+		color: $color-text;
+		position: absolute;
+		@include rem(top, 3px);
+		@include rem(right, 4px);
+		@include rem(padding, 0 10px);
+		@include rem(line-height, $height-default - 6px);
+		pointer-events: none;
+		.lt-ie10 & {
+			display: none;
+		}
+		@media screen and (min-width:0\0) {
+			display: none; // targets ie9 & ie10
+		}
+	}
+	select {
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    cursor: pointer;
+		margin-bottom: 0;
+		@include rem(padding-right, 2px);
+		width: 100%;
+		border-radius: 0;
+	}
+	&.#{$ns}x-small {
+		&:after {
+			top: 3px;
+			right: 4px;
+			padding: 0 6px;
+			@include rem(line-height, $height-default - 13px);
+		}
+	}
+}
+
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus, input[type="submit"]:focus {
+	outline: thin dotted #333;
+	outline: auto;
+	outline: 5px auto $color-focus;
+}
+
+input[type=checkbox],
+input[type=radio] {
+	width: auto;
+	cursor: pointer;
+	@include rem(margin-bottom, 3px);
+	+ label {
+		display: inline-block;
+		@include rem(margin-left, 4px);
+		+ input[type=checkbox], + input[type=radio] {
+			@include rem(margin-left, 15px);
+		}
+	}
+	&:disabled {
+		cursor: default;
+		+ label {
+			color: lighten($color-text, 35);
+			cursor: default;
+		}
+	}
+}

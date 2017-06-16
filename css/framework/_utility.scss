@@ -1,0 +1,147 @@
+.#{$ns}cf:before,
+.#{$ns}cf:after {
+ 	content: " ";
+	display: table;
+}
+
+.#{$ns}cf:after {
+	clear: both;
+}
+
+.#{$ns}padding-5 {
+	@include rem(padding, 5px);
+}
+
+.#{$ns}padding-10 {
+	@include rem(padding, 10px);
+}
+
+.#{$ns}padding-15 {
+	@include rem(padding, 15px);
+}
+
+.#{$ns}padding-20 {
+	@include rem(padding, 20px);
+}
+
+.#{$ns}space-bottom {
+	@include rem(margin-bottom, $margin-bottom);
+}
+
+.#{$ns}pull-right {
+	float: right;
+}
+
+.#{$ns}pull-left {
+	float: left;
+}
+
+.#{$ns}image-right {
+	float: right;
+	@include rem(margin, 5px 0 2px 15px);
+}
+
+.#{$ns}image-left {
+	float: left;
+	@include rem(margin, 5px 15px 2px 0);
+}
+
+.#{$ns}text-right {
+	text-align: right;
+}
+
+.#{$ns}text-left {
+	text-align: left;
+}
+
+.#{$ns}text-center {
+	text-align: center;
+}
+
+.#{$ns}text-muted {
+	color: lighten($color-text, 20);
+}
+
+.#{$ns}text-required,
+.#{$ns}text-error,
+.#{$ns}text-negative {
+	color: $color-error;
+}
+
+.#{$ns}text-warning,
+.#{$ns}text-caution {
+	color: darken($color-caution, 5);
+}
+
+.#{$ns}text-success,
+.#{$ns}text-positive {
+	color: $color-success;
+}
+
+.#{$ns}text-lead {
+	font-size: 115%;
+}
+
+.#{$ns}alt {
+	background-color: $color-default-lt;
+}
+
+.#{$ns}auto {
+	width: auto;
+}
+
+.#{$ns}full {
+	width: 100%;
+}
+
+.#{$ns}margin-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.#{$ns}inline {
+	float: none;
+	display: inline;
+}
+
+.#{$ns}inline-block {
+	float: none;
+	display: inline-block;
+}
+
+.#{$ns}fixed {
+	position: fixed;
+	top: 0;
+	&.#{$ns}bottom {
+		top: auto;
+		bottom: 0;
+	}
+}
+
+.#{$ns}show {
+	display: block !important;
+}
+
+.#{$ns}hide {
+	display: none !important;
+}
+
+.#{$ns}hide-visually {
+	visibility: hidden;
+}
+
+.#{$ns}show-visually {
+	visibility: visible;
+}
+
+.#{$ns}well {
+    background-color: lighten( $color-default-lt, 10 );
+    border: 1px solid lighten( $color-default, 10 );
+    @include rem(padding, 15px);
+    &.#{$ns}small {
+        @include rem(padding, 10px);
+    }
+    &.#{$ns}large {
+        @include rem(padding, 20px);
+    }
+}

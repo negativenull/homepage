@@ -1,0 +1,39 @@
+table, .#{$ns}table {
+	@include rem(margin-bottom, $margin-bottom);
+	&.#{$ns}striped tbody tr:nth-child(odd),
+	&.#{$ns}striped tbody .#{$ns}alt {
+		background-color: lighten($color-default-lt, 11); // consider js applied alt class for old ie
+	}
+	&.#{$ns}bordered {
+		border: 1px solid $color-default-lt;
+	}
+	&.#{$ns}bordered-all th,
+	&.#{$ns}bordered-all td {
+		border: 1px solid $color-default-lt;
+	}
+	&.#{$ns}clean {
+		tr {
+			border: none;
+		}
+	}
+	&.#{$ns}hover {
+		tbody tr:hover {
+			background-color: lighten($color-default-lt, 8) !important;
+		}
+	}
+}
+
+tr {
+	border-bottom: 1px solid $color-default-lt;
+}
+
+th {
+	font-weight: bold;
+}
+
+th, td {
+	@include rem(padding, 10px 12px);
+	line-height: normal;
+	vertical-align: middle;
+	text-align: left;
+}

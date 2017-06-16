@@ -1,0 +1,33 @@
+/******************************
+    tabs
+******************************/
+
+.#{$ns}tab-nav {
+    @include clearfix;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        float: left;
+        a {
+            display: block;
+            @include rem(padding, 0 15px);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &.#{$ns}active a,
+        &.active a {
+            cursor: default;
+            color: $color-text;
+            text-decoration: none;
+        }
+    }
+}
+
+.#{$ns}tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}

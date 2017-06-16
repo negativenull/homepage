@@ -1,0 +1,152 @@
+// grid
+$max-width:            940 !default;  // px
+$grid-columns:              12 !default;   // number of columns in the grid, 16 max
+$max-gutter:           20 !default;   // px
+$gutter-override:      null !default; //  % - overrides max-gutter if not null
+
+// fonts
+$font-size:            14px !default;
+$font-family:          'Lato', arial, sans-serif !default;
+$font-family-heading:  'Lato', arial, sans-serif !default;
+
+// btn/input heights
+$height-x-small:       28px !default;
+$height-small:         32px !default;
+$height-default:       36px !default;
+$height-large:         42px !default;
+$height-x-large:       50px !default;
+
+$button-border-width:  0 !default;
+$button-border-radius: 4px !default;
+
+$margin-bottom:        15px !default; // px - bottom margin applied to common elements
+$border-radius:        4px !default;  // for all radius emelents other than buttons
+
+$fontPath:             "framework/fonts" !default;
+$fa-font-path:         "framework/font-awesome/fonts"; // path for font awesome fonts
+
+$nav-vertical-padding: 10px !default; // applied to top & bottom
+$nav-height:           $height-large !default;
+
+$size-unit:            "both" !default; // px, rem, or both
+
+$colNames: "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen";
+
+
+// =========================================================================== //
+//  colors names - don't use these in your styles, use the color types below
+// =========================================================================== //
+
+// edline green
+$color-green-lt:     #7ad63c;
+$color-green:        #53ba0e;
+$color-green-dk:     #3d980b;
+
+// blue
+$color-blue-lt:      #0f7deb;
+$color-blue:         #0c65cb;
+
+// silver
+$color-silver-lt:    #d5dae0;
+$color-silver:       #bdc3c7;
+$color-silver-dk:    #959ea6;
+
+// midnight
+$color-midnight-lt:  #425b74;
+$color-midnight:     #34495e;
+$color-midnight-dk:  #2c3e50;
+$color-midnight-dkr: #203142;
+
+// orange
+$color-orange-lt:    #fdaf3d;
+$color-orange:       #fd9709;
+$color-orange-dk:    #ef6b08;
+
+// red
+$color-red-lt:       #f86959;
+$color-red:          #e74b3b;
+$color-red-dk:       #bf382b;
+
+// purple
+$color-purple-lt:    #8840a7;
+$color-purple:       #7a2b9d;
+
+// turquoise
+$color-turquoise-lt: #1abc9c;
+$color-turquoise:    #16a085;
+
+// white
+$color-white:        lighten(desaturate(blue, 94), 49); // slight blue hue
+
+
+// ================================================================= //
+//  color types
+// ================================================================= //
+
+// default
+$color-default-lt:   $color-silver-lt !default;
+$color-default:      $color-silver !default;
+$color-default-dk:   $color-silver-dk !default;
+
+// inverse
+$color-inverse-lt:   $color-midnight-lt !default;
+$color-inverse:      $color-midnight !default;
+$color-inverse-dk:   $color-midnight-dk !default;
+$color-inverse-dkr:  $color-midnight-dkr !default;
+
+// primary
+$color-primary-lt:   $color-green-lt !default;
+$color-primary:      $color-green !default;
+$color-primary-dk:   $color-green-dk !default;
+
+// secondary
+$color-secondary-lt: $color-blue-lt !default;
+$color-secondary:    $color-blue !default;
+
+// positive
+$color-positive:     #20a13b !default;
+$color-success:      $color-positive !default;
+
+// caution
+$color-caution-lt:   $color-orange-lt !default;
+$color-caution:      $color-orange !default;
+$color-caution-dk:   $color-orange-dk !default;
+
+// nagative
+$color-negative-lt:  $color-red-lt !default;
+$color-negative:     $color-red !default;
+$color-negative-dk:  $color-red-dk !default;
+$color-error:        $color-negative !default;
+
+// focus color
+$color-focus:        lighten($color-blue-lt, 15) !default;
+
+// text color
+$color-text:         lighten( desaturate($color-inverse, 20), 8 ) !default;
+$color-text-lt:      $color-white !default;
+$color-heading:      $color-inverse !default;
+$color-heading-sub:  darken($color-default-dk, 10) !default;
+
+// link color
+$color-link:         $color-secondary-lt !default;
+
+
+// ================================================================= //
+//  don't change these
+// ================================================================= //
+
+$phone-min: 320px;
+$phone-max: 480px;
+$tablet-portrait-min: 480px;
+$tablet-portrait-max: 768px;
+$tablet-min: 768px;
+$tablet-max: 980px;
+$desktop-min: 980px;
+$desktop-max: 1200px;
+$desktop-large-min: 1200px;
+
+$ns: 'm-';
+$inc: 1 !default;
+$base-font-size: 16px; // 16px is typically browser default and allows for 100% font-size on html
+$rem-ratio: $base-font-size / 1rem;
+$grid-gutters: if( $gutter-override, $gutter-override, percentage( $max-gutter / $max-width ) );

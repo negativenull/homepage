@@ -1,0 +1,69 @@
+/******************************
+	grid
+******************************/
+
+// create grid based size classes
+@for $i from 1 through $grid-columns {
+	.#{$ns}#{nth($colNames, $i)} {
+		width: percentage( $i / $grid-columns );
+	}
+	.#{$ns}#{nth($colNames, $i)}-fixed {
+		width: 100%;
+	}
+	.#{$ns}#{nth($colNames, $i)}-max {
+		max-width: #{$max-width * ( $i / $grid-columns )}px;
+	}
+}
+
+.#{$ns}container {
+	@include clearfix;
+	width: 96%;
+	max-width: #{$max-width}px;
+	margin: auto;
+	position: relative;
+}
+
+.#{$ns}row {
+	@include clearfix;
+    margin: 0;
+	&.#{$ns}spaced > .#{$ns}col {
+		@include rem(margin-bottom, $margin-bottom);
+	}
+    &.#{$ns}gutters {
+        margin-left: -$grid-gutters / 2;
+        margin-right: -$grid-gutters / 2;
+    }
+}
+
+.#{$ns}col {
+	@include clearfix;
+	position: relative;
+	float: left;
+	min-height: 1px;
+	width: 100%;
+}
+
+.#{$ns}gutters .#{$ns}col {
+    width: 100% - $grid-gutters;
+    margin-left: $grid-gutters / 2;
+    margin-right: $grid-gutters / 2;
+}
+
+@include breakpoint(phone) {
+	@include create-grid-columns("xs-");
+}
+
+@include breakpoint(tablet-portrait) {
+	@include create-grid-columns("sm-");
+}
+
+@include breakpoint(tablet) {
+	@include create-grid-columns; // not specifying the class makes this the default - one, two, three, etc.
+}
+
+@include breakpoint(desktop) {
+	@include create-grid-columns("lg-");
+	.#{$ns}container {
+		width: 100%;
+	}
+}
