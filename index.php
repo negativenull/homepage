@@ -1,6 +1,7 @@
 <?php 
 include "feeds.php"; 
 include "urls.php"; 
+include "weather.php"; 
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -34,7 +35,7 @@ include "urls.php";
 			<a href="#search"><i class="fa fa-search"> Search</i></a>
 		</li>
 		<li>
-			<a href="#rss"><i class="fa fa-cloud"> Weather</i></a>
+			<a href="#weather"><i class="fa fa-cloud"> Weather</i></a>
 		</li>
 		<li>
 			<a href="#rss"><i class="fa fa-rss"> RSS Feeds</i></a>
@@ -51,10 +52,10 @@ include "urls.php";
 		<h1 class="m-sub">Negativenull.net</h1>
 	</section>
 	<section id='search'>
-		<iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&kn=1&bgcolor=#2c3e50&focus=yes" style="overflow:hidden;margin:0;padding:0;width:408px;height:40px;" frameborder="0"></iframe>
+		<iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&kn=1&bgcolor=#2c3e50" style="overflow:hidden;margin:0;padding:0;width:408px;height:40px;max-width:100%;" frameborder="0"></iframe>
 	</section>
 	<section id='weather'>
-		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="https://forecast.io/embed/#lat=39.7798&lon=-105.0168&name=NW Denver&color=#2c3e50&font=arial"></iframe>
+		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="https://forecast.io/embed/#lat=<?php echo $lat;?>&lon=<?php echo $lon; ?>&name=<?php echo $city; ?>&color=#2c3e50&font=arial"></iframe>
 	</section>
 	<section id='rss'>
 		<h2 class="m-sub">RSS</h2>
