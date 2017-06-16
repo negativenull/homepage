@@ -84,12 +84,93 @@ include "weather.php";
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/prettify.js"></script>
+	<script src="js/script.js"></script>
 <script>
-var link = document.createElement('link');
-link.type = 'image/x-icon';
-link.rel = 'shortcut icon';
-link.href = 'favicon.ico';
-document.getElementsByTagName('head')[0].appendChild(link);
+    $(function() {
+        var preHTML = [],
+            $pretty = $('.prettyprint.linenums'), i, ii;
+
+        for (i = 0, ii = $pretty.length; i < ii; i++) {
+            preHTML.push($($pretty[i]).text());
+        }
+
+        prettyPrint();
+
+        $pretty.each(function(i) {
+            var $plain = $('<div />', {
+                    'class': 'plain',
+                    'text': preHTML[i]
+                }),
+                $toggle = $('<a />', {
+                    'href': 'test',
+                    'text': 'View plain',
+                    'class': 'pretty-toggle'
+                }).on('click', viewToggle);
+            $(this).append($plain, $toggle);
+        });
+
+        function viewToggle(e) {
+            var text = $(this).text().indexOf('plain') > 0 ? "View pretty" : "View plain";
+            $(this).text(text).parent().toggleClass('plain').find('.plain, ol').toggle();
+            e.preventDefault();
+        }
+
+        var $body = $('body'),
+            transition = $.support.transition;
+
+        $('.m-nav-menu-btn').on('click', function(e) {
+            e.preventDefault();
+
+            if ($(this).hasClass('m-active')) {
+                closeNav();
+            } else {
+                bodyTransition();
+                $(this).addClass('m-active');
+                $body.addClass('m-nav-active');
+                $('main').bind('touchmove', function(e) { e.preventDefault() });
+            }
+        });
+
+        $('#m-nav').on('click', 'a', closeNav);
+        window.onresize = closeNav;
+
+        $('main').on('click', function() {
+            if ( $body.hasClass('m-nav-active') ) {
+                closeNav();
+            }
+        })
+
+        function closeNav() {
+            bodyTransition();
+            $body.removeClass('m-nav-active');
+            $('.m-nav-menu-btn').removeClass('m-active')
+            $('main').unbind('touchmove');
+        }
+
+        function bodyTransition() {
+            var $body = $('body');
+
+            $body.addClass('m-transition');
+            transition && $body.hasClass('m-nav-active') ?
+            $body.one($.support.transition.end, function() { $body.removeClass('m-transition') }) :
+                $body.removeClass('m-transition');
+        }
+
+        $('.m-has-tooltip').tooltip({
+            template: '<div class="tooltip m-tooltip"><div class="tooltip-inner"></div></div>',
+            delay: { show: 500, hide: 0 }
+        });
+
+    });
+</script>
+<script>
+//var link = document.createElement('link');
+//link.type = 'image/x-icon';
+//link.rel = 'shortcut icon';
+//link.href = 'favicon.ico';
+//document.getElementsByTagName('head')[0].appendChild(link);
 </script>
     </body>
 </html>

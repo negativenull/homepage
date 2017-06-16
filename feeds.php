@@ -24,8 +24,12 @@ function displayFeed($name, $url) {
 		if(empty($title)) continue;
 		$link = $feed[$x]['link'];
 		$description = $feed[$x]['desc'];
-		//$description = preg_replace("/<img[^>]+\>/i", "", $description);
-		$description = strip_tags($description,"<p><a><h1><h2><h3><h4><h5><h6><div><span><img>");
+		if($name=='XKCD') {
+			$descriptionFiltered = strip_tags($description,"<p><a><h1><h2><h3><h4><h5><h6><div><span><img>");
+		} else {
+			$descriptionFiltered = strip_tags($description,"<p><a><h1><h2><h3><h4><h5><h6><div><span>");
+		}
+		$description=$descriptionFiltered;
 		$date = date('l F d, Y', strtotime($feed[$x]['date']));
 		?>
 		<div class="m-alert m-notice">
